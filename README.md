@@ -1,11 +1,22 @@
-<div align="center">
+# CNRN Scholar
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+CNRN Scholar is a comprehensive, focused study companion designed specifically for nurses preparing for the Certified Neuroscience Registered Nurse (CNRN) examination. 
 
-  <h1>Built with AI Studio</h2>
+Featuring a clean, minimalist design that prioritizes readability and focus, the application offers an extensive question bank and versatile practice modes to help you achieve mastery across all core CNRN domains.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Features
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+- **Dashboard & Progress Tracking**
+  Monitor your overall accuracy, question history, and see your proficiency broken down by key CNRN knowledge categories. 
+- **Versatile Practice Modes**
+  - **Simulated 220-Q Exam:** A true test of endurance mirroring the format and length of the actual examination.
+  - **Standard 75-Q & Quick 20-Q Reviews:** Perfect for targeted, efficient study sessions.
+  - **Category-Specific Quizzes:** Focus your prep directly on weaker areas such as Correlative Anatomy, Trauma, Tumors, or Pediatric conditions.
+- **Robust Question Bank**
+  Study questions with detailed rationales, correct answer breakdowns, and the ability to "Hide" questions you have mastered to keep your review pile fresh.
+- **Arthur the Mascot**
+  A dedicated study buddy! Enjoy motivational quotes and interesting neuroscience nursing facts from Arthur the dog.
 
-</div>
+## Tech Stack
+
+Built with React, TypeScript, and styled exclusively with Tailwind CSS for a highly responsive, distraction-free studying experience.

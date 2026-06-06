@@ -1,0 +1,6 @@
+{
+  "name": "Arthur's CNRN Academy",
+  "description": "A CNRN study application for Annie, guided by her faithful dog Arthur.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
