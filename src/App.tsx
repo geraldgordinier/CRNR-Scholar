@@ -138,7 +138,26 @@ export default function App() {
           )}
         </div>
 
-        <div className="flex md:flex-col overflow-x-auto md:overflow-visible no-scrollbar mt-auto md:mt-0">
+        <div className="block md:hidden px-6 pb-6">
+          <div className="relative">
+            <select
+              value={effectiveView}
+              onChange={(e) => setView(e.target.value as ViewState)}
+              className="w-full appearance-none bg-white border border-ink text-ink py-3 pl-4 pr-10 text-[13px] uppercase tracking-widest font-bold outline-none rounded-none"
+            >
+              <option value="practice_tests">Practice Tests</option>
+              <option value="category_quizzes">Category Quizzes</option>
+              <option value="dashboard">Progress</option>
+              <option value="all_questions">Question Bank</option>
+              <option value="hidden_questions">Hidden Questions</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-ink">
+              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden md:flex md:flex-col overflow-x-auto md:overflow-visible no-scrollbar mt-auto md:mt-0">
           <button 
             onClick={() => setView('practice_tests')}
             className={cn(

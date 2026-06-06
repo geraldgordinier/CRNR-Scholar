@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { cn } from '../lib/utils';
+import { ArthurEasterEgg } from './ArthurEasterEgg';
 
 const ARTHUR_PHOTOS = [
   '/arthur-1.png',
@@ -44,6 +45,7 @@ export function ArthurWidget({ viewToggle }: ArthurWidgetProps) {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [quoteIndex, setQuoteIndex] = useState(0);
   const [factIndex, setFactIndex] = useState(0);
+  const [showEasterEgg, setShowEasterEgg] = useState(false);
 
   useEffect(() => {
     // Randomly cycle when the view changes
@@ -53,27 +55,40 @@ export function ArthurWidget({ viewToggle }: ArthurWidgetProps) {
   }, [viewToggle]);
 
   return (
-    <div className="flex flex-col items-center w-full md:min-h-[300px]">
-      <div className="w-24 h-24 md:w-48 md:h-48 rounded-full overflow-hidden mb-2 md:mb-4 shadow-sm relative bg-white shrink-0">
-        <img 
-          src={ARTHUR_PHOTOS[photoIndex]} 
-          alt="Arthur the dog" 
-          className="w-full h-full object-cover"
-          onError={(e) => {
-             // Fallback if images aren't uploaded yet
-             e.currentTarget.src = "https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=200&auto=format&fit=crop";
-          }}
-        />
-      </div>
-      
-      <div className="w-full">
-        <p className="font-sans font-bold text-base md:text-lg mb-2 text-center">Arthur Says</p>
-        <div className="text-left w-full h-auto md:h-32 mb-4 md:mb-0">
-          <p className="text-sm md:text-base text-ink opacity-90 leading-relaxed font-medium">
-            {ENCOURAGING_WORDS[quoteIndex]} {CNRN_FUN_FACTS[factIndex]}
-          </p>
+    <>
+      <div className="flex flex-col items-center w-full md:min-h-[300px]">
+        <div 
+          onClick={() => setShowEasterEgg(true)}
+          className="w-24 h-24 md:w-48 md:h-48 rounded-full overflow-hidden mb-2 md:mb-4 shadow-sm relative bg-white shrink-0 cursor-pointer hover:scale-105 transition-transform duration-300"
+          title="Click Arthur for a surprise!"
+        >
+          <img 
+            src={ARTHUR_PHOTOS[photoIndex]} 
+            alt="Arthur the dog" 
+            className="w-full h-full object-cover"
+            onError={(e) => {
+               // Fallback if images aren't uploaded yet
+               e.currentTarget.src = "https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=200&auto=format&fit=crop";
+            }}
+          />
+        </div>
+        
+        <div className="w-full">
+          <p className="font-sans font-bold text-base md:text-lg mb-2 text-center">Arthur Says</p>
+          <div className="text-left w-full h-auto md:h-32 mb-4 md:mb-0">
+            <p className="text-sm md:text-base text-ink opacity-90 leading-relaxed font-medium">
+              {ENCOURAGING_WORDS[quoteIndex]} {CNRN_FUN_FACTS[factIndex]}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+      
+      {showEasterEgg && (
+        <ArthurEasterEgg 
+          initialImgSrc={ARTHUR_PHOTOS[photoIndex]} 
+          onStop={() => setShowEasterEgg(false)} 
+        />
+      )}
+    </>
   );
 }
